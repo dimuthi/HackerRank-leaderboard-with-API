@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <form>
+            <br>
+            <div class="form-group">
+                <label for="usr">Test ID:</label>
+                <input type="text" class="form-control" id="testid" placeholder="search.." >
+            </div>
+            <button type="button" class="btn btn-primary">Search</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Full name</th>
+                    <th>Total Score</th>
+                    <th>Attempt start time</th>
+                    <th>Attempt end time</th>
+                    <th>Algorithms skills</th>
+                    <th>Data structures knwoledge</th>
+                    <th>Plagarism status</th>
+
+                </tr>
+                
+            </thead>
+            <tbody>
+       
+                <tr *ngFor="let users of results">
+                   <!--  <ng-container *ngIf="{{users.length}}=== 0; else elseBlock">-->
+                    <td >{{users.full_name}}</td>
+                    <td>{{users.score}}</td>
+                    <td>
+                        {{users.attempt_starttime? users.attempt_starttime : "No Data"}}
+                    </td>
+                    <td>{{users.attempt_endtime}}</td>
+                    <td>{{users.scores_tags_split.Algorithms}}</td>
+                    <td>{{users.scores_tags_split.Medium}}</td>
+                    <td>{{users.plagiarism_status}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
